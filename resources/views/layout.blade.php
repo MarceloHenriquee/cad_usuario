@@ -18,6 +18,7 @@
          @yield('conteudo')
     </div> 
   </div>
+  <center><h5>By Marcelo Developer</h5><a href="https://github.com/MarceloHenriquee" target="_blank">GitHub</a></center>
 
 
 

@@ -1,7 +1,7 @@
 @extends('layout')
 
 @section('cabecalho')
-<h1>Criar novo Cliente</h1>
+  <h1>Criar novo Cliente</h1>
 @endsection
 
 @section('conteudo')

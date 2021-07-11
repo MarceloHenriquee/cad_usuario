@@ -5,6 +5,6 @@
 @endsection
 
 @section('conteudo')
-   <a href="/clients/create" class="btn btn-primary">Novo Cliente</a>
+   <a href="/clients/create" class="btn btn-primary">Cadastrar Novo Cliente</a>
 @endsection
 
