@@ -29,7 +29,7 @@
                     <th scope="row">{{ $client->id }}</th>
                     <td>{{ $client->name }}</td>
                     <td>{{ $client->email}}</td>
-                    <td>{{ $client->date_birth}}</td>
+                    <td>{{ $client->date_birth }}</td>
                     <td>{{$client->password }}</td>
                     <td><button class="btn btn-success">Alterar</button></td>
                     <td><button class="btn btn-danger">Excluir</button></td>

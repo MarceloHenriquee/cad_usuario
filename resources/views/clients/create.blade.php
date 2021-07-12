@@ -4,6 +4,7 @@
   
 @section('conteudo')
     <div class="container">
+
        <form method="post">
            @csrf
             <div class="form-group col-6">

@@ -16,11 +16,11 @@ class ClientController extends Controller
      */
     public function index()
     {
-        $clients = Client::all();
+        $clients = Client::query()->orderBy('name')->get();
         return view('clients.index', compact('clients'));
     }
 
-    /**
+    /** 
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response
@@ -40,8 +40,8 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $clients = Client::create($request->all());
-        echo("Cliente  com id {$clients->id} criada: {$clients->name}");
-        return view('clients.index');
+        
+        return redirect('/');
         
 
     } 
