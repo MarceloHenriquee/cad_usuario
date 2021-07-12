@@ -14,10 +14,11 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
         $clients = Client::query()->orderBy('name')->get();
-        return view('clients.index', compact('clients'));
+        $menssagem = $request->session()->get('menssagem');
+        return view('clients.index', compact('clients','menssagem'));
     }
 
     /** 
@@ -40,6 +41,7 @@ class ClientController extends Controller
     public function store(Request $request)
     {
         $clients = Client::create($request->all());
+        $request->session()->flash('menssagem', "Cliente {$clients->name} Criado com sucesso!");
         
         return redirect('/');
         
@@ -86,8 +88,10 @@ class ClientController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Request $request)
     {
-        //
+        Client::destroy($request->id);
+        $request->session()->flash('menssagem', "Cliente Excluido com sucesso!");
+        return redirect('/');
     }
 }

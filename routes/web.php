@@ -18,3 +18,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('' , 'ClientController@index');
 Route::get('/clients/create' , 'ClientController@create');
 Route::post('/clients/create', 'ClientController@store');
+Route::delete('/clients/{id}', 'ClientController@destroy');

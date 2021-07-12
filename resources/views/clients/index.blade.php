@@ -4,6 +4,12 @@
  
 @section('conteudo')
 <div class="container">
+
+    @if (!empty($menssagem))
+        <div class="alert alert-success" role="alert">
+            {{ $menssagem }}
+        </div>
+    @endif
     <div class="row">
         <a href="/clients/create" class="btn btn-primary">Cadastrar Novo Cliente</a>
     </div><hr />
@@ -24,17 +30,23 @@
                 </tr>
             </thead>
             @foreach ($clients as $client )
-            <tbody>
-                <tr>
-                    <th scope="row">{{ $client->id }}</th>
-                    <td>{{ $client->name }}</td>
-                    <td>{{ $client->email}}</td>
-                    <td>{{ $client->date_birth }}</td>
-                    <td>{{$client->password }}</td>
-                    <td><button class="btn btn-success">Alterar</button></td>
-                    <td><button class="btn btn-danger">Excluir</button></td>
-                </tr>
-            </tbody>
+                <tbody>
+                    <tr>
+                        <th scope="row">{{ $client->id }}</th>
+                        <td>{{ $client->name }}</td>
+                        <td>{{ $client->email}}</td>
+                        <td>{{ $client->date_birth }}</td>
+                        <td>{{$client->password }}</td>
+                        <td><button class="btn btn-success">Alterar</button></td>
+                        <form method="post" action="/clients/{{$client->id}}"
+                            onsubmit="return confirm('Tem certeza que deseja excluir o cliente {{ addslashes($client->name) }} ?')">
+                            
+                            @csrf
+                            @method('DELETE')
+                         <td><button class="btn btn-danger">Excluir</button></td>
+                        </form>
+                    </tr>
+                </tbody>
             @endforeach
            
         </table>
