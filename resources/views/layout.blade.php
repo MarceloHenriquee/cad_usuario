@@ -13,12 +13,12 @@
         <center><h1 class="display-4">@yield('cabecalho')</h1></center>   
     </div>
 </div>
-  <div class="container">
-    <div class="container">
+
+    <div class="container" style="min-height: 400px;">
          @yield('conteudo')
     </div> 
-  </div>
-  <center><h5>By Marcelo Developer</h5><a href="https://github.com/MarceloHenriquee" target="_blank">GitHub</a></center>
+  
+  <div style="background-color: #e9ecef"><center><h5>By Marcelo Developer</h5><a href="https://github.com/MarceloHenriquee" target="_blank">GitHub</a></center></div>
 
 
 

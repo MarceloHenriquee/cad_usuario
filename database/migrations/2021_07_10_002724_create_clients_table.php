@@ -17,7 +17,7 @@ class CreateClientsTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('email')->unique();
-            $table->date('date_birth')->nullable()->format('d-m-Y');
+            $table->date('date_birth')->nullable();
             $table->string('password')->min_length(8);
             $table->timestamps();
         });

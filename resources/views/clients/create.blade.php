@@ -1,12 +1,11 @@
 @extends('layout')
-
-@section('cabecalho')
-  <h1>Criar novo Cliente</h1>
-@endsection
-
+@section('title') Cadastro de clientes @endsection
+@section('cabecalho') <h1>Criar novo Cliente</h1> @endsection
+  
 @section('conteudo')
     <div class="container">
-       <form>
+       <form method="post">
+           @csrf
             <div class="form-group col-6">
                 <label for="name">Nome</label>
                 <input type="text" class="form-control" id="name" name="name">
@@ -24,16 +23,13 @@
                 <input type="password" class="form-control" id="password" name="password">
             </div>
             <div class="row">
-                <div class="col-1">
-                    <input name="btn-gravar" id="btn-gravar" class="btn btn-success" type="button" value="Gravar"> 
+                <div class="col-md-2">
+                    <button type="submit" class="btn btn-success"name="btn-gravar" id="btn-gravar">Cadastrar</button> 
                 </div>
-                <div class="col-1">
-                    <a href="/clients" name="btn-voltar" id="btn-voltar" class="btn btn-danger"> Voltar </a>
-                </div>
-                
-                
-            </div>
-            
+                <div class="col-md-2">
+                    <a href="/" name="btn-voltar" id="btn-voltar" class="btn btn-danger"> Voltar </a>
+                </div>              
+            </div>           
          </form> 
     </div>
  @endsection

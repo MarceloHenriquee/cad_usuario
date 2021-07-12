@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Client;
+
 
 class ClientController extends Controller
 {
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +16,8 @@ class ClientController extends Controller
      */
     public function index()
     {
-        return view('clients.index');
+        $clients = Client::all();
+        return view('clients.index', compact('clients'));
     }
 
     /**
@@ -21,8 +25,9 @@ class ClientController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
+    public function create(Request $request)
     {
+       
         return view('clients.create');
     }
 
@@ -34,8 +39,12 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        var_dump($request->query->all()); 
-    }
+        $clients = Client::create($request->all());
+        echo("Cliente  com id {$clients->id} criada: {$clients->name}");
+        return view('clients.index');
+        
+
+    } 
 
     /**
      * Display the specified resource.
